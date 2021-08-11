@@ -1,0 +1,196 @@
+.sidebar {
+    min-width: 300px;
+    max-width: 300px;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0px 0px 5px rgba(2, 0, 96, 0.25);
+    // overflow-x: hidden;
+    &__wrap {
+        padding: 24px 0 0 32px;
+    }
+
+    &__title {
+        margin-bottom: 32px;
+        .burg{
+            display: none;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            div{
+                width: 30px;
+                height: 2px;
+                background: #000;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    top: 9px;
+                    left: 0;
+                    width: 30px;
+                    height: 2px;
+                    background: #000;
+                }
+                &::after{
+                    content: '';
+                    position: absolute;
+                    top: 18px;
+                    left: 0;
+                    width: 30px;
+                    height: 2px;
+                    background: #000;
+                }
+            }
+        }
+        h3 {
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 24px;
+        }
+    }
+
+    &__nav {
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        &__item {
+            display: flex;
+            margin-bottom: 40px;
+            height: 37px;
+            &--height {
+                height: 200px;
+
+                .sidebar__list__link {
+                    svg {
+                        max-width: 32px;
+                        width: 100%;
+                        height: 34px;
+                    }
+                }
+            }
+        }
+        &__link {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            cursor: pointer;
+            &--active {
+                border-right: 2px solid $purple;
+            }
+            &--text {
+                margin-left: 16px;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 37px;
+                color: $black-700;
+            }
+            .sidebar__link__settings {
+                position: relative;
+                img {
+                    transition: all .1s ease-in-out;
+                    margin-left: 67px;
+                }
+                .settings__list {
+                    margin-top: 32px;
+                    margin-left: 16px;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 768px){
+        position: fixed;
+        top: 80px;
+        left: 0;
+        min-width: 80px;
+        max-width: 80px;
+        width: 100%;
+        z-index: 999;
+        background: $white;
+        &__wrap {
+            padding: 24px 0 0 24px;
+        }
+        &__title {
+            h3{
+                display: none;
+            }
+            .burg{
+                display: block;
+            }
+        }
+        &__list {
+            display: flex;
+            flex-direction: column;
+            &__item {
+                display: flex;
+                margin-bottom: 40px;
+                height: 37px;
+                &--height {
+                    height: 200px;
+    
+                    .sidebar__list__link {
+                        svg {
+                            max-width: 32px;
+                            width: 100%;
+                            height: 34px;
+                        }
+                    }
+                }
+            }
+    
+            &__link {
+                height: 100%;
+                width: 100%;
+                display: flex;
+    
+                &--active {
+                    border-right: 2px solid $purple;
+                }
+    
+                &--text {
+                    display: none;
+                }
+    
+                .sidebar__link__settings {
+                    >div{
+                        display: flex;
+                        align-items: center;
+                        img {
+                            display: none;
+                            transition: all .1s ease-in-out;
+                            margin-left: 67px;
+                        }
+        
+                        .settings__list {
+                            margin-top: 32px;
+                            margin-left: 16px;
+                        }
+                    }
+                    
+                }
+            }
+        }
+        &--active{
+            min-width: 300px;
+            max-width: 300px;
+            width: 100%;
+            .sidebar__list__link--text{
+                display: block;
+            }
+            .sidebar__link__settings {
+                >div{
+                    // display: flex;
+                    // align-items: center;
+                    img{
+                        display: block;
+                    }
+                    .settings__list {
+                        margin-top: 32px;
+                        margin-left: 16px;
+                    }
+                }
+                
+            }
+        }
+    }
+}
